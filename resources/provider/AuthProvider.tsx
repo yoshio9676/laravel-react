@@ -7,14 +7,14 @@ import { LoginFormDataType } from '../types/AuthContext';
 export const AuthContext = React.createContext<AuthContextType>(null!);
 
 const AuthProvider = ({ children }: { children: JSX.Element }) => {
-    const [user, setUser] = useState<UserModelType|null>(null);
+    const [user, setUser] = useState<UserModelType|false|null>(null);
 
     useEffect(() => {
         axios.get('/api/user').then(res => {
             console.log('user', res);
-            setUser(res.data.user ?? null);
+            setUser(res.data.user ?? false);
         }).catch(error => {
-            setUser(null);
+            setUser(false);
             console.error(error);
         });
     }, []);
@@ -27,10 +27,10 @@ const AuthProvider = ({ children }: { children: JSX.Element }) => {
             axios.post('/api/login', {email: email, password: password})
             .then(res => {
                 console.log('login', res);
-                setUser(res.data);
+                setUser(res.data ?? false);
             })
             .catch(err => {
-                setUser(null);
+                setUser(false);
             });
         });
         return user;
@@ -38,7 +38,7 @@ const AuthProvider = ({ children }: { children: JSX.Element }) => {
 
     const logout = async () => {
         await axios.post('/api/logout').then(res => {
-            setUser(null);
+            setUser(false);
         });
     }
 

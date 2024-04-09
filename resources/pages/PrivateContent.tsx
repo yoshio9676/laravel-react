@@ -18,14 +18,22 @@ const PrivateContent = () => {
     }
   });
 
+  const handleLogout = () => {
+    auth.logout();
+    navigate('/login');
+  }
+
   const Content = () => {
     if (auth.user !== false || auth.user !== null) {
       // 認証済みの場合のルーティング群
       return (
-        <Routes>
-          <Route path='/mypage' element={<MyPage />}/>
-          <Route path='/sample' element={<Sample />}/>
-        </Routes>
+        <>
+          <Routes>
+            <Route path='/mypage' element={<MyPage />}/>
+            <Route path='/sample' element={<Sample />}/>
+          </Routes>
+          <button onClick={handleLogout}>ログアウト</button>
+        </>
       )
     } else {
       return <></>
