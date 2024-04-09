@@ -37,3 +37,8 @@ services:
     ports:
       - 9000:9000
       - 5173:5173
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - 6379:6379

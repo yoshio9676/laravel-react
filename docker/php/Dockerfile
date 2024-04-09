@@ -9,7 +9,9 @@ RUN apt-get update \
     git \
     libzip-dev \
     unzip \
-    && docker-php-ext-install pdo pdo_mysql zip
+    # && pecl install redis \
+    && docker-php-ext-install pdo pdo_mysql zip \
+    # redis
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 RUN php composer-setup.php

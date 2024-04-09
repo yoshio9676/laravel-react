@@ -1,17 +1,22 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import AuthProvider from '../provider/AuthProvider';
 import Home from '../pages/Home';
-import Sample from '../pages/Sample';
+import Login from '../pages/Login';
+import PrivateContent from '../pages/PrivateContent';
 
 function App() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path='/'  element={<Home />}/>
-                <Route path='/sample'  element={<Sample />} />
-            </Routes>
-        </BrowserRouter>
+        <AuthProvider>
+            <BrowserRouter>
+                <Routes>
+                    <Route path='/'  element={<Home />}/>
+                    <Route path='/login' element={<Login />}/>
+                    <Route path='/*' element={<PrivateContent /> }/>
+                </Routes>
+            </BrowserRouter>
+        </AuthProvider>
     )
 }
 
