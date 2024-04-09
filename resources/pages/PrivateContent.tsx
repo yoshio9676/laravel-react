@@ -13,7 +13,7 @@ const PrivateContent = () => {
   const auth = useContext(AuthContext);
 
   useEffect(() => {
-    if (auth.user === false || auth.user === null) {
+    if (auth.user === false) {
       navigate('/login');
     }
   });
