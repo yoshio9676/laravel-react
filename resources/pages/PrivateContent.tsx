@@ -3,7 +3,7 @@
  */
 import React, { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import Sample from './Sample';
 import MyPage from './MyPage';
@@ -28,6 +28,7 @@ const PrivateContent = () => {
       // 認証済みの場合のルーティング群
       return (
         <>
+          <Link to={'/'}>To Home</Link>
           <Routes>
             <Route path='/mypage' element={<MyPage />}/>
             <Route path='/sample' element={<Sample />}/>
