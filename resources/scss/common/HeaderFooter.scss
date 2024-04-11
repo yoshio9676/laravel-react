@@ -24,6 +24,7 @@ footer {
     position: fixed;
     bottom: 0;
     border-top: 1px solid v.$primary;
+    background-color: v.$hot-light-orange;
     @include m.flex-center-column;
     p {
         text-align: center;

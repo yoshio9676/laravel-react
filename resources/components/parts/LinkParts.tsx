@@ -6,12 +6,14 @@ type LinkPartsProps = {
     to: string;
     children : JSX.Element|string;
     color?: string;
+    className?: string;
 }
 
-const LinkParts = ({to, children, color = 'inherit'}: LinkPartsProps) => {
+const LinkParts = ({to, children, color = 'inherit', className = ''}: LinkPartsProps) => {
+    const classNameVal = `link-parts ${className}`;
     return (
         <Link
-            className='link-parts'
+            className={classNameVal}
             to={to}
             style={{color: color}}
         >{children}</Link>

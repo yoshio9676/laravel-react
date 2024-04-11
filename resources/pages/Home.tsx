@@ -1,15 +1,17 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { AuthContext } from '../provider/AuthProvider'
+import { AuthContext } from '../provider/AuthProvider.js';
+import { AuthContextType } from '../types/AuthContext.js';
+import LinkParts from '../components/parts/LinkParts.js';
 
 const Home = () => {
-  const auth = useContext(AuthContext);
+  const auth = useContext<AuthContextType>(AuthContext);
 
   const LoginOrLogoutLink = () => {
     if (auth.user) {
-      return <Link to={'/mypage'}>MyPage</Link>
+      return <LinkParts className='hover-underline' to={'/mypage'}>To MyPage</LinkParts>
     } else {
-      return <Link to={'/login'}>Login</Link>
+      return <LinkParts className='hover-underline' to={'/login'}>To Login</LinkParts>
     }
   }
   return (

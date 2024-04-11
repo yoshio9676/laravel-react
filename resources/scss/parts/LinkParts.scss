@@ -3,4 +3,9 @@
 
 .link-parts {
     text-decoration: none;
+    &.hover-underline {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }

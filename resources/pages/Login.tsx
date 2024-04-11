@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-import { AuthContext } from '../provider/AuthProvider'
-import { LoginFormDataType } from '../types/AuthContext'
-// import { useSelector } from 'react-redux'
-// import { useDispatch } from 'react-redux'
-// import { login, logout } from '../store/slice/userSlice'
+import { AuthContext } from '../provider/AuthProvider.js'
+import { LoginFormDataType } from '../types/AuthContext.js'
+import LinkParts from '../components/parts/LinkParts.js'
 
 const Login = () => {
   const navigate = useNavigate();
@@ -60,7 +58,7 @@ const Login = () => {
           />
           <button onClick={handleLogin}>Login</button>
         </div>
-        <Link to={'/'}>To Home Page</Link>
+        <LinkParts className='hover-underline' to={'/'}>To Home Page</LinkParts>
       </div>
     </>
   )
