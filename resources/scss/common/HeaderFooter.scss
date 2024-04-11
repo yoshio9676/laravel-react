@@ -1,0 +1,32 @@
+@use "../setting/variables" as v;
+@use "../setting/mixins" as m;
+
+header {
+    height: 60px;
+    padding: 0 v.$spacing-s;
+    font-size: v.$font-size-xl;
+    font-weight: v.$font-weight-normal;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid v.$primary;
+    @include m.box-shadow($shadow-color: v.$secondary);
+    .header-buttons {
+        display: flex;
+        justify-content: flex-end;
+        gap: v.$spacing-xs;
+    }
+}
+footer {
+    height: 100px;
+    width: 100vw;
+    font-size: v.$font-size;
+    position: fixed;
+    bottom: 0;
+    border-top: 1px solid v.$primary;
+    @include m.flex-center-column;
+    p {
+        text-align: center;
+        width: 100%;
+    }
+}

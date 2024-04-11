@@ -1,0 +1,14 @@
+@use "../setting/variables" as v;
+@use "../setting/mixins" as m;
+
+.common-button {
+    padding: 0 v.$spacing-s;
+    height: 35px;
+    width: fit-content;
+    background-color: v.$secondary;
+    border: 1px solid v.$primary;
+    border-radius: v.$border-radius;
+    &:hover {
+        background-color: v.$hot-light-orange;
+    }
+}

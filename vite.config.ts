@@ -12,7 +12,7 @@ export default defineConfig({
                 // tsx
                 'resources/base_components/SampleBase.tsx',
                 // scss
-                'resources/scss/index.scss',
+                'resources/scss/app.scss',
             ],
             refresh: true,
         }),

@@ -1,0 +1,39 @@
+@use "variables" as *;
+
+
+// media screens
+// sp media screen
+@mixin sp {
+    @media screen and (max-width: $md) {
+        @content;
+    }
+}
+// middle media screen
+@mixin middle {
+    @media screen and (min-width: $md) and (max-width: $xl) {
+        @content;
+    }
+}
+// pc media screen
+@mixin pc {
+    @media screen and (min-width: $xl) {
+        @content;
+    }
+}
+
+// Mixins
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flex-center-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+// box-shadow 
+@mixin box-shadow($x: 0, $y: 2px, $offset: 0, $shadow-color: $black) {
+    box-shadow: $x $y $offset $shadow-color;
+}

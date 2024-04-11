@@ -4,9 +4,8 @@
 import React, { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Routes, Route, Link } from 'react-router-dom';
-import { AuthContext } from '../provider/AuthProvider';
-import Sample from './Sample';
-import MyPage from './MyPage';
+import { AuthContext } from '../provider/AuthProvider.js';
+import MyPage from './MyPage.js';
 
 const PrivateContent = () => {
   const navigate = useNavigate();
@@ -18,11 +17,6 @@ const PrivateContent = () => {
     }
   });
 
-  const handleLogout = () => {
-    auth.logout();
-    navigate('/login');
-  }
-
   const Content = () => {
     if (auth.user !== false || auth.user !== null) {
       // 認証済みの場合のルーティング群
@@ -31,9 +25,7 @@ const PrivateContent = () => {
           <Link to={'/'}>To Home</Link>
           <Routes>
             <Route path='/mypage' element={<MyPage />}/>
-            <Route path='/sample' element={<Sample />}/>
           </Routes>
-          <button onClick={handleLogout}>ログアウト</button>
         </>
       )
     } else {
